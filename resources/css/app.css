@@ -1,0 +1,896 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  /* Primary Colors */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+
+  /* Secondary Colors */
+  --secondary-50: #f5f3ff;
+  --secondary-100: #ede9fe;
+  --secondary-200: #ddd6fe;
+  --secondary-300: #c4b5fd;
+  --secondary-400: #a78bfa;
+  --secondary-500: #8b5cf6;
+  --secondary-600: #7c3aed;
+  --secondary-700: #6d28d9;
+  --secondary-800: #5b21b6;
+  --secondary-900: #4c1d95;
+
+  /* Accent Colors */
+  --accent-500: #ec4899;
+  --accent-600: #db2777;
+
+  /* Success, Warning, Error */
+  --success-500: #10b981;
+  --warning-500: #f59e0b;
+  --error-500: #ef4444;
+
+  /* Neutral Colors */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+}
+
+/* Base Typography */
+body {
+  font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--neutral-700);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.025em;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+  letter-spacing: -0.0125em;
+}
+
+h3, .h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.0125em;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.lead {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--neutral-600);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Special Text */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* CTA Text */
+.cta-container h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.cta-container p {
+  font-size: 1.125rem;
+  color: var(--neutral-600);
+}
+
+/* Responsive Typography */
+@media (max-width: 767.98px) {
+  h1, .h1 {
+    font-size: 2rem;
+  }
+  h2, .h2 {
+    font-size: 1.75rem;
+  }
+  h3, .h3 {
+    font-size: 1.25rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .cta-container h2 {
+    font-size: 1.75rem;
+  }
+  .cta-container p {
+    font-size: 1rem;
+  }
+}
+
+/* Accordion Typography */
+.accordion-button {
+  font-weight: 500;
+  color: var(--neutral-800);
+}
+
+.accordion-body {
+  line-height: 1.6;
+  color: var(--neutral-600);
+}
+
+/* Footer Typography */
+.footer p {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+/* Specific Elements & Overlays */
+.overlay::before {
+  background: #F7F8FF !important; /* Replaced gradient with Ghost White */
+  /* background: #FFFFFF !important; */ /* Or pure white */
+  --contrast-color: #ffdcff; /* This variable likely needs changing for a light background */
+  border-radius: 10px;
+}
+
+.form-header button#paste {
+  display: none;
+}
+
+.form-section {
+  font-weight: 500;
+  font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+}
+@media(max-width: 768px){.container-lg.form-section {
+    padding-top: 20px;
+}}
+.heading-title-main {
+     margin-bottom: 2rem !important;
+    font-size: 28px;
+    letter-spacing: 1px;
+    padding-top: 1.3rem!important;
+  font-weight: 600;
+  font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+  /* Fallback solid color for browsers that don't support gradient text */
+   /* Fallback solid color for browsers that don't support gradient text */
+  color: #4d8df7; /* Using the starting blue as fallback */
+
+  /* 1. Define the gradient background based on the image */
+  background: linear-gradient(
+    to right, /* Gradient direction: left to right */
+    #4d8df7,  /* Start color: Blue */
+    #b85fd9,  /* Middle color: Purple */
+    #f159d3   /* End color: Pink */
+  );
+  /* 2. Clip the background to the text */
+  -webkit-background-clip: text; /* For Safari/WebKit browsers */
+  background-clip: text;
+  /* 3. Make the text color transparent to show the background gradient */
+  color: transparent;
+  /* Optional: Ensures correct behavior in some layouts */
+  /* display: inline-block; */
+}
+
+/* Section Backgrounds */
+.highlights-features-section {
+  background: linear-gradient(to bottom, #FFFFFF, #E6EEFF);
+    font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+  /* Fallback solid color for browsers that don't support gradient text */
+}
+
+.highlights-best-tool-section {
+  background: linear-gradient(to top, #FFFFFF, #E6EEFF);
+}
+.header-form-main .form-control{
+   
+    box-shadow: 0 3px 8px rgba(77, 141, 247, 0.35), 0 3px 8px rgba(184, 95, 217, 0.35), 0 3px 8px rgba(241, 89, 211, 0.35) !important;
+}
+.fw-medium {
+   
+    font-size: 15px;
+}
+.highlights-best-tool-section{
+    font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif !important;
+}
+/* Header Form Wrapper Section */
+.header-form-wrapper.overlay.section {
+  position: relative;
+  background: linear-gradient(135deg, #d0eaff, #e6d8ff, #ffd6f0); /* pastel blue-lavender-pink */
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings and text within Header Form Wrapper */
+.header-form-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4d8df7, #b85fd9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-form-wrapper p {
+  font-size: 1.125rem;
+  color: #333;
+}
+
+/* Form input within Header Form Wrapper */
+.header-form-main .form-control {
+  border-radius: 40px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  transition: border-color 0.3s ease;
+}
+
+.header-form-main .form-control:focus {
+  border-color: #a579ff;
+  outline: none;
+}
+
+/* Paste button within Header Form Wrapper */
+#paste {
+  border-radius: 50%;
+  background-color: #ccc;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Download button within Header Form Wrapper */
+.header-form-main .btn-primary.submit {
+  background: linear-gradient(90deg, #4d8df7, #f159d3);
+  border: none;
+  color: #fff;
+  border-radius: 40px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 0, 150, 0.2);
+  transition: background 0.3s ease;
+}
+
+.header-form-main .btn-primary.submit:hover {
+  background: linear-gradient(90deg, #356fe6, #e147c6);
+}
+
+/* Form Header Paste Button Position Override */
+/* Note: This selector appeared twice in the original code. Kept separate as requested. */
+.form-header button#paste {
+  right: 2px !important;
+}
+
+/* General Component Styling */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-600), var(--accent-600));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Button Styling (General Primary) */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, var(--primary-700), var(--secondary-700));
+  box-shadow: 0 4px 12px rgba(123, 97, 255, 0.3);
+}
+
+/* Background Utilities */
+.bg-light {
+  background-color: var(--neutral-50) !important;
+}
+
+/* Accordion Custom Colors */
+.accordion-button:not(.collapsed) {
+  color: var(--primary-700);
+  background-color: var(--primary-50);
+}
+
+.accordion-button:focus {
+  border-color: var(--primary-300);
+  box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+/* Card Gradients & Hover Effects */
+.feature-card,
+.best-feature-card,
+.benefit-card {
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover,
+.best-feature-card:hover,
+.benefit-card:hover {
+  background: linear-gradient(135deg, #ffffff, #f5f3ff);
+  transform: translateY(-5px);
+}
+
+/* Icon Gradients */
+.icon-container,
+.benefit-icon {
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.step-number {
+  background: linear-gradient(90deg, #4d8df7, #f159d3);
+  color: white;
+}
+
+/* Layout Adjustments */
+.highlights-main-content {
+  margin-top: 0; /* Adjust based on your hero section height */
+}
+
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1700px;
+  }
+}
+
+/* Section Title Underline */
+.section-title { /* Appears redefined - check if intentional */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4776E6, #8E54E9);
+}
+
+/* Footer Styles */
+.highlights-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Apply Animation to Cards */
+.feature-card,
+.best-feature-card,
+.benefit-card,
+.step-card {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Stagger Card Animations */
+.feature-card:nth-child(1),
+.best-feature-card:nth-child(1),
+.benefit-card:nth-child(1),
+.step-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2),
+.best-feature-card:nth-child(2),
+.benefit-card:nth-child(2),
+.step-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3),
+.best-feature-card:nth-child(3),
+.benefit-card:nth-child(3),
+.step-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(4),
+.best-feature-card:nth-child(4),
+.step-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-card:nth-child(5),
+.best-feature-card:nth-child(5),
+.step-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Button Animation (General Primary - Hover) */
+/* Note: Seems like a duplicate hover effect definition - check if intentional */
+.btn-primary {
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(72, 118, 230, 0.2);
+}
+
+/* Responsive Adjustments (Layout) */
+@media (max-width: 767.98px) {
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .display-4 { /* Note: .display-4 class not defined elsewhere in provided code */
+    font-size: 2.3rem;
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* CTA Section Specific Styles */
+.highlights-cta-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlights-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.pexels.com/photos/4549408/pexels-photo-4549408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center/cover no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Components Styling (Specific Sections) */
+
+/* Feature Cards */
+.feature-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid var(--neutral-100);
+}
+
+.feature-card:hover { /* Note: Redefined hover behavior - check if intentional */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.feature-card .icon-container {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Best Feature Cards */
+.best-feature-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid var(--neutral-100);
+  text-align: center;
+}
+
+.best-feature-card:hover { /* Note: Redefined hover behavior - check if intentional */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.best-feature-card i {
+  font-size: 2.5rem;
+  color: var(--primary-500);
+  margin-bottom: 1rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.best-feature-card:hover i {
+  transform: scale(1.1);
+  color: var(--secondary-500);
+}
+
+.best-feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Steps Cards */
+.steps-container {
+  position: relative;
+  padding-left: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .steps-container::before {
+    top: 56px;
+    bottom: 94px !important;
+    left: 18px !important;
+  }
+}
+
+.steps-container::before {
+  content: '';
+  position: absolute;
+  top: 56px;
+  bottom: 68px;
+  left: 22px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-300), var(--secondary-300));
+}
+
+.step-card {
+  position: relative;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid var(--neutral-100);
+}
+
+.step-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.step-number { /* Note: Appears redefined - check if intentional */
+  position: absolute;
+  top: 50%;
+  left: -3.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.step-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+.step-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Benefit Cards */
+.benefits-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.benefit-card {
+  /*flex: 1 1 300px;*/
+  max-width: 350px;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid var(--neutral-100);
+}
+
+.benefit-card:hover { /* Note: Redefined hover behavior - check if intentional */
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.benefit-icon { /* Note: Appears redefined - check if intentional */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* FAQ Accordion */
+.accordion {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-left: 0;
+  border-right: 0;
+}
+
+.accordion-item:first-of-type {
+  border-top: 0;
+}
+
+.accordion-item:last-of-type {
+  border-bottom: 0;
+}
+
+.accordion-button { /* Note: Appears redefined - check if intentional */
+  padding: 1.25rem 1.5rem;
+  font-weight: 500;
+  background-color: white;
+}
+
+.accordion-button:not(.collapsed) { /* Note: Appears redefined - check if intentional */
+  box-shadow: none;
+}
+
+.accordion-body { /* Note: Appears redefined - check if intentional */
+  padding: 1.25rem 1.5rem;
+  background-color: var(--neutral-50);
+}
+.highlights-info-section .lead {
+  font-size: 1rem; /* Reduced from the default 1.125rem */
+  /* You can adjust this value further if 1rem is too small or not small enough */
+  /* e.g., font-size: 1.0625rem; for something between 1rem and 1.125rem */
+}
+
+/* Responsive Adjustments (Components) */
+@media (max-width: 767.98px) {
+  .benefits-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .benefit-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .steps-container {
+    padding-left: 3rem;
+  }
+  .steps-container::before {
+    left: 35px; /* Note: Different value than the 18px in the other media query for steps-container */
+  }
+  .step-card {
+    padding: 1.25rem;
+  }
+  .step-number {
+    left: -3rem;
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* Services Section */
+.services {
+  background: linear-gradient(135deg, var(--gray-100), #fff);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 30px;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  justify-content: normal;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+  background: #fff;
+}
+
+.service-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  position: relative;
+}
+
+.service-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+   background: linear-gradient(135deg, #3B82F6, #EC4899);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.service-content {
+  flex-grow: 1;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.service-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #6366F1, #EC4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+/* ----- Navbar Tabs Styling (All !important) ----- */
+
+/* Container for the tabs */
+.home-form-tabs {
+  background-color: #ffffff !important; /* White background */
+  border-radius: 8px !important;        /* Slightly rounded corners */
+  padding: 5px !important;              /* Inner padding around buttons */
+  margin-bottom: 1rem !important;       /* As per your mb-3 */
+  display: flex !important;             /* Use flexbox for alignment */
+  justify-content: space-between !important; /* Distribute buttons */
+  border: 1px solid rgba(106, 13, 173, 0.2) !important; /* Optional: Subtle border */
+  box-shadow: 0 2px 10px rgba(106, 13, 173, 0.1) !important; /* Optional: Subtle shadow */
+}
+
+/* Remove default Bootstrap tab styling */
+.home-form-tabs .nav-link {
+  border: none !important; /* Remove default borders */
+  margin-bottom: 0 !important; /* Remove default margin */
+}
+
+.nav-tabs {
+  border-bottom: none !important; /* Remove the default bottom line of nav-tabs */
+}
+
+/* Individual Tab Button Styling */
+.nav-tabs-btns {
+  color: #555 !important;               /* Dark grey text for inactive tabs */
+  background-color: transparent !important; /* No background for inactive */
+  border-radius: 6px !important;        /* Rounded corners for buttons */
+  padding: 4px 6px !important;      /*   Padding inside buttons */
+  margin: 0 2px !important;             /* Small gap between buttons */
+  text-align: center !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  flex-grow: 1 !important;              /* Allow buttons to grow and fill space */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Smooth transition */
+  border: none !important;              /* Ensure no default button border */
+  cursor: pointer !important;
+}
+
+/* Hover effect for inactive tabs */
+.nav-tabs-btns:not(.active):hover {
+  color: #6A0DAD !important; /* Primary purple color on hover */
+  background-color: rgba(106, 13, 173, 0.05) !important; /* Very light purple tint on hover */
+}
+
+/* Active Tab Styling */
+.nav-tabs-btns.active {
+  color: #ffffff !important; /* White text */
+  font-weight: 600 !important;
+  /* Gradient background matching the image's download button */
+  background-image: linear-gradient(to right, #6A0DAD, #B300B3, #E6005C) !important; /* Adjust gradient colors */
+  box-shadow: 0 3px 6px rgba(106, 13, 173, 0.2) !important; /* Subtle shadow for active tab */
+}
+
+/* Focus state - Optional: remove default blue outline */
+.nav-tabs-btns:focus {
+  outline: none !important;
+  box-shadow: none !important; /* Remove Bootstrap's default focus shadow if desired */
+}
+
+.nav-link {
+   padding: 4px 6px !important; 
+}
+/* Adjust flex-grow if you don't want buttons to stretch fully */
+/*
+.nav-tabs-btns {
+  flex-grow: 0 !important;
+}
+*/

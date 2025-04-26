@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap:https://fastvideosave.com/sitemap.xml

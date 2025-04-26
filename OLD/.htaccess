@@ -1,0 +1,46 @@
+#+PHPVersion
+#=H4sIAAAAAAACA1MqyCiwMFICAKfHeR4HAAAA
+AddHandler x-httpd-php82 .php
+#-PHPVersion
+
+#+StackCache
+#=H4sIAAAAAAACA6tWysxNTE8tVrJScrQwMzEwUNJRSi5G4WYlliUWJxdlFpQgRGsBHUOpRTgAAAA=
+ExpiresActive ON
+ExpiresByType "image/jpeg" "A86400"
+ExpiresByType "image/jpg" "A86400"
+ExpiresByType "image/gif" "A86400"
+ExpiresByType "image/png" "A86400"
+ExpiresByType "image/svg+xml" "A86400"
+ExpiresByType "image/webp" "A86400"
+ExpiresByType "image/vnd.microsoft.icon" "A86400"
+ExpiresByType "image/x-icon" "A86400"
+ExpiresByType "image/ico" "A86400"
+ExpiresByType "font/ttf" "A86400"
+ExpiresByType "font/otf" "A86400"
+ExpiresByType "application/x-font-opentype" "A86400"
+ExpiresByType "application/x-font-woff" "A86400"
+ExpiresByType "application/x-font-ttf" "A86400"
+ExpiresByType "application/font-woff" "A86400"
+ExpiresByType "font/woff2" "A86400"
+ExpiresByType "application/vnd.ms-fontobject" "A86400"
+ExpiresByType "text/css" "A86400"
+ExpiresByType "text/javascript" "A86400"
+ExpiresByType "application/javascript" "A86400"
+#-StackCache
+
+#+Unmarked
+#EOF
+#EOF
+#EOF
+#EOF
+#EOF
+#-Unmarked
+
+#+WebsiteRedirect
+#=[]
+RewriteEngine On
+RewriteOptions InheritBefore
+#-WebsiteRedirect
+
+
+#EOF
