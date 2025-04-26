@@ -31,6 +31,7 @@ return [
     'easy_use_desc' => 'Our simple and clear website makes downloads easy for everyone.',
     'guide_title' => 'How Our Story Downloader Works',
     'guide_intro' => 'Our instagram story downloader is built to be fast and easy. Here are the simple steps:',
+    'guide_note' => 'Saving stories is easy when you just use the link!',
     'step_1_title' => 'Find the Story',
     'step_1_desc' => 'Open Instagram and go to the story you want to save.',
     'step_2_title' => 'Copy the Link',

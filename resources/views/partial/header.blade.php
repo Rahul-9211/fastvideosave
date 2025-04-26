@@ -46,6 +46,26 @@
                     <!--<li class="nav-item">-->
                     <!--    <a class="nav-link text-dark" href="{{ route('contact') }}">contact</a>-->
                     <!--</li>-->
+                    <!-- Language Selector Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i> 
+                            @if(app()->getLocale() == 'en')
+                                English
+                            @elseif(app()->getLocale() == 'de')
+                                Deutsch
+                            @elseif(app()->getLocale() == 'es')
+                                Español
+                            @else
+                                Language
+                            @endif
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ url('lang/en') }}">English</a></li>
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'de' ? 'active' : '' }}" href="{{ url('lang/de') }}">Deutsch</a></li>
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'es' ? 'active' : '' }}" href="{{ url('lang/es') }}">Español</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
