@@ -11,11 +11,11 @@
             </div>
           <ul class="d-flex justify-content-center pb-4 flex-wrap">
                             <li><a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a></li>
-                            <!--<li><a class="dropdown-item" href="{{ route('page', 'privacy-policy') }}">Privacy</a></li>-->
+                            <!--<li><a class="dropdown-item" href="{{ route('page', ['slug' => 'privacy-policy']) }}">Privacy</a></li>-->
                             <!--<li><a class="dropdown-item" href="{{ route('terms') }}">Terms & Condition</a></li>-->
                             <!--<li><a class="dropdown-item" href="{{ route('about-us') }}">About Us</a></li>-->
                              @foreach($pages as $page)
-                            <li><a class="dropdown-item" href="{{ route('page', $page->slug) }}">{{ $page->title }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('page', ['slug' => $page->slug]) }}">{{ $page->title }}</a></li>
                             @endforeach
                             <!--<li><a class="dropdown-item" href="{{ route('blogs') }}">Blogs</a></li>-->
           </ul>

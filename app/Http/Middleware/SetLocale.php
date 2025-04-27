@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 
 class SetLocale
 {
@@ -82,8 +83,24 @@ class SetLocale
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
+        // Check if we have a locale in the URL
+        $urlLocale = $request->segment(1);
+        
+        // If the URL has a valid locale code, use it and set the URL locale
+        if (in_array($urlLocale, $this->languages)) {
+            $locale = $urlLocale;
+            session(['locale' => $locale]);
+            Log::info("Setting locale from URL: " . $locale);
+            app()->setLocale($locale);
+            
+            // Generate URLs with the locale prefix
+            URL::defaults(['locale' => $locale]);
+            
+            return $next($request);
+        }
+        
         $clientIp = $request->ip();
         Log::info("Client IP: " . $clientIp);
         
@@ -145,7 +162,24 @@ class SetLocale
             }
         }
         
-        app()->setLocale($locale ?? $this->defaultLanguage);
+        // Set application locale
+        $locale = $locale ?? $this->defaultLanguage;
+        app()->setLocale($locale);
+        
+        // If we don't have a locale in the URL, redirect to the URL with locale
+        if (!in_array($request->segment(1), $this->languages) && 
+            !$request->is('lang/*') && 
+            !$request->is('test-locale') && 
+            !$request->is('clear-locale-session') &&
+            !$request->ajax()) {
+            $path = $request->path();
+            if ($path == '/') $path = '';
+            return redirect($locale . '/' . $path);
+        }
+        
+        // Generate URLs with the locale prefix
+        URL::defaults(['locale' => $locale]);
+        
         return $next($request);
     }
 

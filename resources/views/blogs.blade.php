@@ -21,11 +21,11 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('singleblog', $blog->slug) }}"><img src="{{ $blog->getFirstMediaUrl('blogimage') }}" class="w-100" alt="{{ $blog->title }}"></a>
+                    <a href="{{ route('singleblog', ['slug' => $blog->slug]) }}"><img src="{{ $blog->getFirstMediaUrl('blogimage') }}" class="w-100" alt="{{ $blog->title }}"></a>
                 </div>
                 <div class="card-body">
-                    <h4><a href="{{ route('singleblog', $blog->slug) }}">{{ $blog->title }}</a></h4>
-                    <a href="{{ route('singleblog', $blog->slug) }}">Read More</a>
+                    <h4><a href="{{ route('singleblog', ['slug' => $blog->slug]) }}">{{ $blog->title }}</a></h4>
+                    <a href="{{ route('singleblog', ['slug' => $blog->slug]) }}">Read More</a>
                 </div>
             </div>
         </div>

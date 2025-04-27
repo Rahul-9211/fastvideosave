@@ -39,7 +39,7 @@
                     <!--    </a>-->
                     <!--    <ul class="dropdown-menu">-->
                     <!--        @foreach($pages as $page)-->
-                    <!--        <li><a class="dropdown-item" href="{{ route('page', $page->slug) }}">{{ $page->title }}</a></li>-->
+                    <!--        <li><a class="dropdown-item" href="{{ route('page', ['slug' => $page->slug]) }}">{{ $page->title }}</a></li>-->
                     <!--        @endforeach-->
                     <!--    </ul>-->
                     <!--</li>-->
@@ -61,9 +61,9 @@
                             @endif
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                            <li><a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ url('lang/en') }}">English</a></li>
-                            <li><a class="dropdown-item {{ app()->getLocale() == 'de' ? 'active' : '' }}" href="{{ url('lang/de') }}">Deutsch</a></li>
-                            <li><a class="dropdown-item {{ app()->getLocale() == 'es' ? 'active' : '' }}" href="{{ url('lang/es') }}">Español</a></li>
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ url('/lang/en') }}">English</a></li>
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'de' ? 'active' : '' }}" href="{{ url('/lang/de') }}">Deutsch</a></li>
+                            <li><a class="dropdown-item {{ app()->getLocale() == 'es' ? 'active' : '' }}" href="{{ url('/lang/es') }}">Español</a></li>
                         </ul>
                     </li>
                 </ul>

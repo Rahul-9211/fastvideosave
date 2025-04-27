@@ -29,7 +29,7 @@
                 <h3>Latest Blogs</h3>
                 @foreach($latestblogs as $latest)
                 <div class="blog">
-                    <h5 class="title"><a href="{{ route('singleblog', $latest->slug) }}">{{ $latest->title }}</a></h5>
+                    <h5 class="title"><a href="{{ route('singleblog', ['slug' => $latest->slug]) }}">{{ $latest->title }}</a></h5>
                 </div>
                 @endforeach
             </div>

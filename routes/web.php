@@ -6,57 +6,36 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Http\Request;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('faqs', [HomeController::class, 'faqs'])->name('faqs');
-Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
-// Redirect old photo URL to new one (permanent 301)
-Route::redirect('instagram-photo-downloader', 'instagram-photo-download', 301);
-
-// Route for the new correct photo URL
-Route::get('instagram-photo-download', [HomeController::class, 'photo'])->name('photo');
-// Redirect old reel URL to new one (permanent 301)
-Route::redirect('instagram-reel-downloader', 'instagram-reel-download', 301);
-
-// Route for the new correct reel URL
-Route::get('instagram-reel-download', [HomeController::class, 'reel'])->name('reel');
-// Redirect old story URL to new one (permanent 301)
-Route::redirect('instagram-story-downloader', 'instagram-story-download', 301);
-
-// Route for the new correct story URL
-Route::get('instagram-story-download', [HomeController::class, 'story'])->name('story');
-Route::get('instagram-igtv-downloader', [HomeController::class, 'igtv'])->name('igtv');
-// Redirect old URL to new one (permanent 301)
-Route::redirect('instagram-highlight-downloader', 'instagram-highlights-download', 301);
-
-// Route for the new correct URL
-Route::get('instagram-highlights-download', [HomeController::class, 'highlight'])->name('highlight');
-Route::post('search', [SearchController::class, 'search'])->name('search');
-Route::get('contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('contact', [HomeController::class, 'contactpost'])->name('contactpost');
-Route::get('page/{slug}', [HomeController::class, 'page'])->name('page');
-Route::get('login', [HomeController::class, 'login'])->name('login');
-Route::get('{slug}', [HomeController::class, 'singleblog'])->name('singleblog');
-Route::get('about-us', [HomeController::class, 'about-us'])->name('about-us');
-Route::get('terms', [HomeController::class, 'terms'])->name('terms');
-Route::get('my-new-tool', [HomeController::class, 'tool'])->name('tool');
-
-// Redirect typo URL
-// Route::get('instagram-highlight-downloader', function () {
-//     return Redirect::to('instagram-highlights-download');
-// });
-
-// // Actual correct route
-// Route::get('instagram-highlights-download', [HomeController::class, 'highlightnew'])->name('highlightnew');
-
-// Language route
-Route::get('lang/{locale}', function ($locale) {
+// Language routes (no locale prefix)
+Route::get('lang/{locale}', function ($locale, Request $request) {
     if (in_array($locale, ['en', 'de', 'es'])) {
         session(['locale' => $locale]);
     }
-    return redirect()->back();
+    
+    // Get the current URL
+    $url = url()->previous();
+    $parsedUrl = parse_url($url);
+    $path = $parsedUrl['path'] ?? '/';
+    
+    // Get the application base path
+    $basePath = parse_url(url('/'))['path'] ?? '';
+    
+    // Remove base path if it exists in the current path
+    if (!empty($basePath) && strpos($path, $basePath) === 0) {
+        $path = substr($path, strlen($basePath));
+    }
+    
+    // Strip out any existing locale prefixes from the path to avoid stacking
+    $cleanPath = preg_replace('~^/?(?:en|de|es)(/.*)?$~', '$1', $path);
+    if (empty($cleanPath)) {
+        $cleanPath = '/';
+    }
+    
+    // Redirect to the clean path with the new locale
+    return redirect(url($locale . $cleanPath));
 });
 
-// Test route for locale detection
+// Testing routes (no locale prefix)
 Route::get('/test-locale', function (Request $request) {
     $clientIp = $request->ip();
     $country = null;
@@ -150,8 +129,48 @@ Route::get('/test-locale', function (Request $request) {
     ]);
 });
 
-// Helper route to clear locale session for testing
+// Helper route to clear locale session for testing (no locale prefix)
 Route::get('/clear-locale-session', function () {
     session()->forget('locale');
     return redirect('/test-locale')->with('message', 'Locale session cleared');
 });
+
+// Localized routes group
+Route::prefix('{locale?}')
+    ->where(['locale' => 'en|de|es'])
+    ->group(function () {
+        // Main routes
+        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('faqs', [HomeController::class, 'faqs'])->name('faqs');
+        Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
+        
+        // Photo routes
+        Route::redirect('instagram-photo-downloader', 'instagram-photo-download', 301);
+        Route::get('instagram-photo-download', [HomeController::class, 'photo'])->name('photo');
+        
+        // Reel routes
+        Route::redirect('instagram-reel-downloader', 'instagram-reel-download', 301);
+        Route::get('instagram-reel-download', [HomeController::class, 'reel'])->name('reel');
+        
+        // Story routes
+        Route::redirect('instagram-story-downloader', 'instagram-story-download', 301);
+        Route::get('instagram-story-download', [HomeController::class, 'story'])->name('story');
+        
+        // Other Instagram routes
+        Route::get('instagram-igtv-downloader', [HomeController::class, 'igtv'])->name('igtv');
+        Route::redirect('instagram-highlight-downloader', 'instagram-highlights-download', 301);
+        Route::get('instagram-highlights-download', [HomeController::class, 'highlight'])->name('highlight');
+        
+        // Other routes
+        Route::post('search', [SearchController::class, 'search'])->name('search');
+        Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+        Route::post('contact', [HomeController::class, 'contactpost'])->name('contactpost');
+        Route::get('page/{slug}', [HomeController::class, 'page'])->name('page');
+        Route::get('login', [HomeController::class, 'login'])->name('login');
+        Route::get('about-us', [HomeController::class, 'about-us'])->name('about-us');
+        Route::get('terms', [HomeController::class, 'terms'])->name('terms');
+        Route::get('my-new-tool', [HomeController::class, 'tool'])->name('tool');
+        
+        // This needs to be the last route as it's a catch-all
+        Route::get('{slug}', [HomeController::class, 'singleblog'])->name('singleblog');
+    });
